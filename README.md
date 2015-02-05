@@ -10,4 +10,28 @@
 
 ### Title
 
-Python in life sciences: How Python drives the analysis of thousands of DNA sequences
+Python in life sciences: How Python drives the analysis of billions of DNA sequences
+
+### Category
+
+Science
+
+### Duration
+
+I would prefer a 30 minutes slot
+
+### Description
+
+### Audience
+
+### Python level
+
+### Objectives
+
+### Detailed abstract
+
+### Outline
+
+### Additional notes
+
+### Additional requirements
