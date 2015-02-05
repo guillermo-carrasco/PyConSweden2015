@@ -12,17 +12,27 @@
 
 * Brief introduction of Genomics (really short, just to explain where the
   data comes from, how is it generated, and why is it useful)
+
 * [Why python?](http://www.nature.com/news/programming-pick-up-python-1.16833)
   Easy to learn, powerful, perfect for glueing, enormous number of
   libraries, huge community support
+
 * Data management and the importance of automation: Disks filling up
   quickly, long term storage importance, manual --> error prone and
   spikes of work.
+
 * Data analysis: NGI-pipeline description (hopefully it will be more
   mature by the time of the presentation)
+
 * Clinical use cases: Up to Robin :-)
+  - Delivering data to clinicians (a.k.a. non-bioinformaticians)
+    => [Scout][scout]
+  - Providing clinically relevant QC metrics => [Chanjo][chanjo]
+  - Restrictions and the lesson that clinicians don't like change
+    + This is work for them, they just want to get it done.
+
 * Open source!!! Remark that all our code is open source, definitely
-  link to the open source site.
+  link to the [open source site][open-source].
 
 ## Proposal
 
@@ -65,3 +75,9 @@ significant data.
 ### Additional notes
 
 ### Additional requirements
+
+
+
+[chanjo]: https://chanjo.readthedocs.org/en/latest/
+[open-source]: http://opensource.scilifelab.se/
+[scout]: http://www.clinicalgenomics.se/scout/
