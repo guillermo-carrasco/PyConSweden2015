@@ -24,7 +24,8 @@
 * Data analysis: NGI-pipeline description (hopefully it will be more
   mature by the time of the presentation)
 
-* Clinical use cases: Up to Robin :-)
+* Clinical use cases [**RA**]
+  - Briefly about motivation from real world use of genomics in the clinic
   - Delivering data to clinicians (a.k.a. non-bioinformaticians)
     => [Scout][scout]
   - Providing clinically relevant QC metrics => [Chanjo][chanjo]
