@@ -54,9 +54,9 @@ I would prefer a 30 minutes slot
 
 [The first part...]
 
-The second part will contrast the different aspects of dealing with end users
+The second part will contrast with different aspects of dealing with end users
 without extensive data science background. The focus will be on our in-house
-developed Flask server for delivering results and a command line tool used to
+developed Flask website for delivering results and a command line tool used to
 generate QC metrics reports.
 
 ### Audience
@@ -83,6 +83,21 @@ and other non-bioinfo people.
 ### Detailed abstract
 
 ### Outline
+
+**Part 2**
+1. Introduce Clinical Genomics facility and it's objectives (5 min)
+  1. Explain the need for the facility, security, speed
+  2. Talk about how customers differ from NGI
+2. Python as a general purpose language (5 min)
+  1. We try to use Python for everything, refactoring bash scripts
+  2. Integrates well with each other and other modules
+3. Reporting results to non-bioinformaticians (5 min)
+  1. Introduce Scout, our web based data delivery interface
+  2. Iterating on Scout: from JS to Python native solutions
+  3. Mention the more portable version of Scout (Blueprints)
+4. Adapting QC metrics to make them clinically relevant (5 min)
+  1. Introduce Chanjo (UNIX/Python)
+  2. Present a sample report and talk about implementation
 
 ### Additional notes
 
