@@ -83,6 +83,7 @@ and other non-bioinfo people.
 ### Detailed abstract
 
 ### Outline
+TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
 
 **Part 2**
 1. Introduce Clinical Genomics facility and it's objectives (5 min)
