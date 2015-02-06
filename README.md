@@ -93,8 +93,9 @@ and other non-bioinfo people.
   2. Integrates well with each other and other modules
 3. Reporting results to non-bioinformaticians (5 min)
   1. Introduce Scout, our web based data delivery interface
-  2. Iterating on Scout: from JS to Python native solutions
-  3. Mention the more portable version of Scout (Blueprints)
+  2. Mention similar projects like Cycledash, One Codex, ...
+  3. Iterating on Scout: from JS to Python native solutions
+  4. Mention the more portable version of Scout (Blueprints)
 4. Adapting QC metrics to make them clinically relevant (5 min)
   1. Introduce Chanjo (UNIX/Python)
   2. Present a sample report and talk about implementation
