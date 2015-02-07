@@ -5,6 +5,8 @@
 * [Proposal advice](https://us.pycon.org/2015/speaking/proposal_advice/)
 * [Proposal resources](https://us.pycon.org/2015/speaking/proposal-resources/)
 * [Proposal sample](https://us.pycon.org/2015/speaking/proposal_advice/samples/SpacePug/)
+* [PyCon 2014 Biology talk](http://blog.karinlag.no/2014/06/sweden/)
+  - Too easy for the audience
 
 ## Brainstorming
 
@@ -28,12 +30,10 @@
   - Briefly about motivation from real world use of genomics in the clinic
   - Delivering data to clinicians (a.k.a. non-bioinformaticians)
     => [Scout][scout]
-  - Providing clinically relevant QC metrics => [Chanjo][chanjo]
-  - Restrictions and the lesson that clinicians don't like change
-    + This is work for them, they just want to get it done
 
 * Open source!!! Remark that all our code is open source, definitely
   link to the [open source site][open-source].
+  - Develop according to open source model: good documentation practices
 
 ## Proposal
 
@@ -54,10 +54,7 @@ I would prefer a 30 minutes slot
 
 [The first part...]
 
-The second part will contrast with different aspects of dealing with end users
-without extensive data science background. The focus will be on our in-house
-developed Flask website for delivering results and a command line tool used to
-generate QC metrics reports.
+The second part will tell the story of how Python is at the center of a medical revolution. It will focus on how we have fundamentally changed the way we deliver data to "regular" clinicians using a Flask powered website in just under a year.
 
 ### Audience
 
@@ -77,8 +74,7 @@ The attendees will learn about a state of the art genomics pipeline and
 how we use Python to manage and analyze large amounts of biologically
 significant data.
 
-In the second part they will learn how we adapt the output data for clinicians
-and other non-bioinfo people.
+They will also learn how about a website that allow clinicians to productively review results from DNA sequencing and make life changing diagnoses.
 
 ### Detailed abstract
 
@@ -86,20 +82,11 @@ and other non-bioinfo people.
 TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
 
 **Part 2**
-1. Introduce Clinical Genomics facility and it's objectives (5 min)
-  1. Explain the need for the facility, security, speed
-  2. Talk about how customers differ from NGI
-2. Python as a general purpose language (5 min)
-  1. We try to use Python for everything, refactoring bash scripts
-  2. Integrates well with each other and other modules
+1. Introduce DNA sequencing in the clinic (5 min)
 3. Reporting results to non-bioinformaticians (5 min)
   1. Introduce Scout, our web based data delivery interface
-  2. Mention similar projects like Cycledash, One Codex, ...
+  2. From Excel to Flask
   3. Iterating on Scout: from JS to Python native solutions
-  4. Mention the more portable version of Scout (Blueprints)
-4. Adapting QC metrics to make them clinically relevant (5 min)
-  1. Introduce Chanjo (UNIX/Python)
-  2. Present a sample report and talk about implementation
 
 ### Additional notes
 
