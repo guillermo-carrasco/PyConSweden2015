@@ -79,9 +79,14 @@ significant data.
 They will also get to peak inside the website that allows clinicians to productively review results from DNA sequencing and make life changing diagnoses.
 
 ### Detailed abstract
+TODO: Do we need to write this? I think it's covered elsewhere, no?
 
 ### Outline
 TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
+
+**Introduction**
+
+**Part 1**
 
 **Part 2**
 
@@ -92,6 +97,11 @@ TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
   1. Introduce Scout, our web based data delivery interface
   2. From Excel to Flask
   3. From JS mess to Python native
+
+**Finale**
+
+1. Doing everything in open source; GitHub, documentation, ...
+2. Promoting great project through our open source portal
 
 ### Additional notes
 
