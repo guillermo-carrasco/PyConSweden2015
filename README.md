@@ -28,7 +28,7 @@
   by the time of the presentation)
 
 * Clinical use cases:
-  - Briefly about motivation from real world use of genomics in the clinic
+  - Motivation from real world use of genomics in the clinic
   - Delivering data to clinicians (a.k.a. non-bioinformaticians)
     => [Scout][scout]
 
@@ -76,7 +76,9 @@ The attendees will learn about a state of the art genomics pipeline and
 how we use Python to manage and analyze large amounts of biologically
 significant data.
 
-They will also get to peak inside the website that allows clinicians to productively review results from DNA sequencing and make life changing diagnoses.
+They will also get a peak behind the website that allows clinicians to
+productively review results from DNA sequencing and make life changing
+diagnoses.
 
 ### Detailed abstract
 TODO: Do we need to write this? I think it's covered elsewhere, no?
@@ -90,17 +92,15 @@ TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
 
 **Part 2**
 
-1. Introduce (myself and) DNA sequencing in the clinic (5 min)
+1. Introduce DNA sequencing + the role of Python in the clinic (5 min)
 
-2. Reporting results to non-bioinformaticians (10 min)
-
-  1. Introduce Scout, our web based data delivery interface
-  2. From Excel to Flask
-  3. From JS mess to Python native
+2. Scout, our web based data delivery interface (10 min)
+  1. From Excel sheet to Flask website
+  2. From JavaScript-mess to Python-bliss
 
 **Finale**
 
-1. Doing everything in open source; GitHub, documentation, ...
+1. Doing everything in open source; GitHub, documentation, [...]
 2. Promoting great project through our open source portal
 
 ### Additional notes
