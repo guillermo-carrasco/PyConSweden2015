@@ -82,8 +82,11 @@ They will also learn how about a website that allow clinicians to productively r
 TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
 
 **Part 2**
+
 1. Introduce DNA sequencing in the clinic (5 min)
-3. Reporting results to non-bioinformaticians (5 min)
+
+2. Reporting results to non-bioinformaticians (5 min)
+
   1. Introduce Scout, our web based data delivery interface
   2. From Excel to Flask
   3. Iterating on Scout: from JS to Python native solutions
