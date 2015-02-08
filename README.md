@@ -18,7 +18,7 @@
 
 * [Why python?](http://www.nature.com/news/programming-pick-up-python-1.16833)
   Easy to learn, powerful, perfect for glueing, enormous number of
-  libraries, huge community support
+  libraries, huge community support, very easy choice in bioinformatics community, quickly growing to be the de facto standard.
 
 * Data management and the importance of automation: Disks filling up
   quickly, long term storage importance, manual -> error prone and spikes of
