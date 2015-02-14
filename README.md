@@ -52,12 +52,17 @@ I would prefer a 30 minutes slot
 
 ### Description
 
-[The first part...]
+A genomics research center produces larges amount of data per day, a single one of
+the new [Illumina machines](http://www.illumina.com/systems/hiseq-x-sequencing-system/performance-specifications.html)
+for sequencing can produce around 2TB of data composed by millions of files in less
+than 3 days.
+
+The first part will focus of a Python pipeline developed at Science For Life Laboratory for the automated analysis of all of that data, the [NGI-pipeline](https://github.com/NationalGenomicsInfrastructure/ngi_pipeline).
 
 The second part will contrast with different aspects of dealing with end users
 without extensive data science background. The focus will be on our in-house
 developed Flask website for delivering results and a command line tool used to
-generate QC metrics reports.
+generate quality control (QC) metrics reports.
 
 ### Audience
 
@@ -74,7 +79,7 @@ Intermediate - Advanced
 ### Objectives
 
 The attendees will learn about a state of the art genomics pipeline and
-how we use Python to manage and analyze large amounts of biologically
+how we use Python to manage, store and analyze large amounts of biologically
 significant data.
 
 In the second part they will learn how we adapt the output data for clinicians
