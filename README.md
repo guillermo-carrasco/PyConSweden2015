@@ -29,8 +29,11 @@
 
 * Clinical use cases:
   - Motivation from real world use of genomics in the clinic
+  - Having a tool like this we think will revolutionize Swedish healthcare!
   - Delivering data to clinicians (a.k.a. non-bioinformaticians)
     => [Scout][scout]
+  - Many tools focus on filtering, we use a rank score
+  - Accreditation and Scout development (not really continuous integration)
 
 * Open source!!! Remark that all our code is open source, definitely
   link to the [open source site][open-source].
