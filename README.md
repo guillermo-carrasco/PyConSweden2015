@@ -40,6 +40,10 @@
   - Develop according to open source model: good documentation practices
   - This is a good way to end the talk I think!
 
+* Important take aways
+  - Include code snippets!
+  - "Try" to include humor, even forced humor
+
 ## Proposal
 
 ### Title
