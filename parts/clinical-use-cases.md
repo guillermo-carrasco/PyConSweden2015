@@ -11,12 +11,14 @@ We sequence the source code for life; DNA. As the patient blood sample travels t
 
 Through the information we obtain/produce, we are able to pin point down to the most minute detail, the cause of a rare inherited disease. This has tremendous effect on patients, families, and society. Treatment, knowledge of our bodies, and reduced suffering for everyone involved. These are truly mysteries that have gone unanswered for sometimes 15 years or more without conclusions. Now we are getting straight to the conclusion within weeks.
 
+
 ## From Excel to Flask
 When I started working around a year, year and a half ago, the delivered results were presented to clinicians and geneticists as a plain Excel sheet. Thousands of lines of text in an unwidely, and inherently static grid.
 
 We knew we could do much better. This is when the idea for Scout was born. As a tool to help clinicians working with and interpreting the massive amounts of data from DNA sequencing.
 
 We implemented it as a Flask server talking to a Mongo database that simplifies and adds interactivity to the whole process. This is truly a project that is at the core of the success of this form of diagnosis. If we do it right it can help both doctors and patients. If we don't the whole project will be slowed down.
+
 
 ## Iterations
 We've reworked the core of the server twice. What started as a standalone Tornado server, transformed into a mess of a Flask+Tornado and extensive client side JavaScript code into the current cleaner solution relying heavily on server side rendering and limiting client side logic to a minimum.
@@ -25,7 +27,25 @@ We have to remind outselves that what we are building is not a fancy photo shari
 
 I've found the painful way that whenever possible doing something is Python is 10 times eaiser than trying to handle it through JavaScript in the browser. Now this is our default and we couldn't be happier. If anything our site is now faster and more responsive. And significantly eaiser to iterate on.
 
+
 ## Security (not sure if I'll have time to get to this)
 DNA is personally identifying by definition. These are also affected individuals. All data needs to be handled with care. We are setting up the server with restricted IP access. We require 2 factor Oauth sign in for all users. We log every action taken on the site. Using Flask extensions have made this learning process entirely doable.
 
 We essentially store the entire Oauth code under a single Blueprint which keeps it's implementation separate from the rest of the code. Loose coupling. We also use MongoEngine as a nice interface to deal with documents in the database as objects in Python.
+
+-----------------
+
+## Scout
+We previously built a JavaScript heavy solution that quickly got out of hand. Therefore we pivoted to a Python native solution which made it easier for us to collaborate, it was still plenty fast, and made iteration much simpler.
+
+We still leverage components (Vue.js and SCSS) on the front end so that we don't need to mess too much with jQuery.
+
+Using Python (Click, Flask) has made interfaces really intuitive and easy to develop and making them conform to UNIX pipelines and standards.
+
+One interesting point to talk about would perhaps be what it's like to be forced to validate every release. What are the up- and downsides? What do we need to think about extra and what consequences does this how on our development workflow.
+  - Examples: bugs like not sorting the list of samples, incorrect GT call
+
+Chance for conclusive diagnosis, chance for treatable diagnosis, you will at least learn more about genetics etc.
+
+To also get into some actual Python code and conventions I could talk about using MongoEngine as an interface ^^ to MongoDB.
+- PyMongo for indexes, weird syntax in ODM
