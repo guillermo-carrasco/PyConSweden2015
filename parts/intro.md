@@ -1,9 +1,12 @@
 # What makes Python uniquely capable of handling NGS data?
 *Even to people outside science, I think this could be an interesting topic.*
 
+## Who are we?
+Spanish vs. Swedish, CS vs. Biology, Design vs. Automation
 
 ## Background & reasons
 1. Many people in the life science field gravitate towards Python
+  - Python is at near monopoly in Science ([ref][monopoly])
 2. Many leading developers come from a biology background
   - End goal: scientific result/publication
     + software engineering matters less if it produces results right now
@@ -30,3 +33,8 @@ So you start to inch your way to becoming a programmer to accomplish your goals.
 It's very motivating to still have the medical/research goals in the background, but still. This was at least my own experience. Starting in the lab in school, and now I'm sitting in front of a computer all day - and couldn't be happier to be on the other side of the glass walls.
 
 I believe this story resonates with many "scientific" programmers. Some of the most influential developers in the field are ex-researchers. There are some indications that commercial interests are shifting things (Genalice, Illumina).
+
+> How did Guillermo end up in life science?
+
+
+[monopoly]: http://news.kynosarges.org/2015/04/05/programming-languages-in-2014/
