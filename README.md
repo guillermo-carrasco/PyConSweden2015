@@ -7,6 +7,7 @@
 * [Proposal sample](https://us.pycon.org/2015/speaking/proposal_advice/samples/SpacePug/)
 * [PyCon 2014 Biology talk](http://blog.karinlag.no/2014/06/sweden/)
   - Too easy for the audience
+* [Best practices for slides](https://github.com/PyCon/best-practices)
 
 ## Brainstorming
 
