@@ -2,7 +2,9 @@
 *Even to people outside science, I think this could be an interesting topic.*
 
 ## Who are we?
-Spanish vs. Swedish, CS vs. Biology, Design vs. Automation
+Spanish vs. Swedish, CS vs. Biology, Design vs. Automation [see presentation]
+
+"Hi, my name is Robin Andeer and I help solve medical mysteries at SciLifeLab in Stockholm using Python."
 
 ## Background & reasons
 1. Many people in the life science field gravitate towards Python
