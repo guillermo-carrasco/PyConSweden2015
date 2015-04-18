@@ -82,3 +82,21 @@ Chance for conclusive diagnosis, chance for treatable diagnosis, you will at lea
 
 To also get into some actual Python code and conventions I could talk about using MongoEngine as an interface ^^ to MongoDB.
 - PyMongo for indexes, weird syntax in ODM
+
+
+---------------
+## What are we doing?
+Diagnosing children with rare inherited diseases. Often shrouded in mystery. Patients stay in the systems undiagnosed for 15 years. We go straight for the root cause of the disease and deliver results in two weeks time. This is accomplished through the use of DNA sequencing. This has a profound effect on the healthcare system as well as for the patients and families themselves.
+
+## Why are we doing this? Non-python
+We develop tools for use by clinicians to enable as quick turn-around times as possible. The difference from what Guillermo was talking about is that we are deling with more routine tasks not exploratory research. We therefore prioritize variants and focus less on filtering for example.
+
+## What are we going to cover?
+The variant browser interface which is a Flask application with a MongoDB backend. To get structure in the database we define the "schema" using an ODM (MongoEngine). Hopefully I can share some best practises around working with Flask and teach you something new to test in your own projects.
+
+## How does the field look like? Current situation
+With major initiatives launching all over the world and with GB as a sort of genomics hub there are alternatives starting to pop up. Many of them are much more researcer focused and a lot more complicated to work with than what we are building. 
+We are also working in very close collaboration with our end users which is both a blessing and a curse. We are likely to deliver what they want but risk building something that is too tailored to be very useful for other people from outside.
+
+## What is the unique problems? - how are you solving them?
+We need to consider the clinical nature of our data. We are working under strict guidelines and many of the simple or low hanging fruit features are complicated by this fact. One issue that keeps coming back to us is that no matter how we do, we are storing personally idetifiable data; it's in the nature of the data! This makes is particularly hard to share almost anything between different entetites like different customer clinics. Even if the data like global frequencies would greatly benefit the end product. The end does not quite justify the means in this case.
