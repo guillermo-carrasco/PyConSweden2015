@@ -1,20 +1,13 @@
 ## What are we doing?
-- Diagnosing children with rare inherited diseases
-  - Often shrouded in mystery
-  - Patients go undiagnosed for 15 years if they survive that long
-- We are able to go straight for the root cause of the disease and deliver results in two weeks
-  - That's 1 possibly conclusive test over multiple garanteed inconclusive tests
+Diagnosing children with rare inherited diseases is a process that's often shrouded in mystery. Patients can go undiagnosed for 15 years, if they survive that long. Each individual test can only ever give indications of what the cause of the symtoms really is.
 
-- We sequence the source code for life; DNA
-  - As the patient blood sample travels through our facility thousands of lines of Python code will eventually touch it.
+In contrast, using DNA sequencing technologies, we are able to go straight for the root cause of the disorder and deliver conclusive results in *two weeks*. As the patient sample travels through our facility thousands of lines of Python code will eventually touch it.
 
-- Tremendous effect on patients, families, and society/healthcare system
-  - Treatment, knowledge of our bodies, and reduced suffering for everyone involved
+This has tremendous effect on patients, families, and society/healthcare system. It can lead to treatment, knowledge of our bodies, and reduced suffering for everyone involved.
 
-- People still hesitate: analysis is not trivial
-  - "like looking for a needle in a haystack ... of needels"
-  - Huge amounts of data, 99.9% no one really knows what to do with or how to store and backup
-    - It's a little like nuclear power plants - we generate a lot of "waste" that no ones has figured out a plan to do with
+However, people still hesitate mainly because of the high initial cost and because the analysis is not trivial. Someone compared it to: "looking for a needle in a haystack ... of needels". For each patient, relatively, we generate huge amounts of data, 99.9% of which no one really knows what to do with or interpret.
+
+Prices are coming down rather rapidly but to be honest it's a little like nuclear power plants - we generate a lot of "waste" that no ones has figured out a plan to do with.
 
 ## Why are we doing this? Non-python
 - In the beginning there was ... Excel
