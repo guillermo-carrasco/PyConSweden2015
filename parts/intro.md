@@ -1,42 +1,32 @@
-# What makes Python uniquely capable of handling NGS data?
+# Introduction
+
+## 1. What makes Python uniquely capable of handling NGS data?
 *Even to people outside science, I think this could be an interesting topic.*
 
-## Who are we?
-Spanish vs. Swedish, CS vs. Biology, Design vs. Automation [see presentation]
+## 2. Who are these two guys?
+Spanish vs. Swedish, CS vs. Biology, Design vs. DevOps
 
-"Hi, my name is Robin Andeer and I help solve medical mysteries at SciLifeLab in Stockholm using Python."
+### Robin Andeer
+My name is Robin Andeer and I solve medical mysteries at SciLifeLab. Many people would probably label me a "scientific programmer".
 
-## Background & reasons
-1. Many people in the life science field gravitate towards Python
-  - Python is at near monopoly in Science ([ref][monopoly])
-2. Many leading developers come from a biology background
-  - End goal: scientific result/publication
-    + software engineering matters less if it produces results right now
-  - Simple to learn
-    + Groups are still transitioning to using Git and testing
-    + General purpose! Unification of scripts, pipelines, processing, viz
-      * ... for others this would be JavaScript ;-)
-3. Python has a large scientific Python community
-  - Key projects like Numpy and Pandas (vs. R)
-  - Open source is getting really big in bioinformatics! Academia :)
-    + The options are: Matlab, R, Perl
-    + Python has a much bigger open source legacy and community
-4. Reverse the question: what if Python didn't exist?
-  - Where would that have left us?
-  - It's an impossible question but it's sort of scary to imagine that reality... Perl...
-  - I think at least we are better off with our current situation!
-
-
-## Anecdote
-You spend time doing research and collecting lots of data. You realize you need to analyze your data and no one has built something to meet your specific research-y needs.
+#### Anecdote
+Many people spend a lot of time doing research. When it comes time to analyze your data you often realize that no one has built something to meet your specific research-y needs.
 
 So you start to inch your way to becoming a programmer to accomplish your goals. All of a sudden you notice you are really more of a developer than a researcher. Your mindset has changed and you find these new technical problems very interesting in their own to tackle.
 
 It's very motivating to still have the medical/research goals in the background, but still. This was at least my own experience. Starting in the lab in school, and now I'm sitting in front of a computer all day - and couldn't be happier to be on the other side of the glass walls.
 
-I believe this story resonates with many "scientific" programmers. Some of the most influential developers in the field are ex-researchers. There are some indications that commercial interests are shifting things (Genalice, Illumina).
+I believe this story resonates with many "scientific" programmers. Some of the most influential developers in the field are ex-researchers that have initially taught themselves to code. Brad Chapman, Aaron Quinlan, etc. [insert GH streak] Do you think he has time for lab work anymore? Hehe. Now *they* are pushing the envelope when it comes to building scientific software. As a general purpose yet simple language for beginners, this is probably also why Python is so prevalent in bioinformatics. In fact Python is at near monopoly in Science ([ref][monopoly]). There's a big open source community (numpy, pandas) which ties really well into the academia heave field. A downside is that many groups are still transitioning to using Git and testing for example.
+
+### Guillermo Carrasco
 
 > How did Guillermo end up in life science?
+
+## 3. Misc.
+Reverse the question: what if Python didn't exist?
+  - Where would that have left us?
+  - It's an impossible question but it's sort of scary to imagine that reality... Perl...
+  - I think at least we are better off with our current situation!
 
 
 [monopoly]: http://news.kynosarges.org/2015/04/05/programming-languages-in-2014/
