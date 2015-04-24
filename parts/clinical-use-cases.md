@@ -34,6 +34,8 @@ If we do it right it can help both doctors and patients. If we don't the whole p
 ## What are we going to cover?
 - Flask app + MongoDB/MongoEngine
 - Logging??
+- Jinja/Flask best practises
+  + Macros in templates are something you often forget about
 
 Hopefully I can share some best practises around working with Flask and teach you something new to test in your own projects.
 
@@ -83,6 +85,7 @@ Hopefully I can share some best practises around working with Flask and teach yo
 To also get into some actual Python code and conventions I could talk about using MongoEngine as an interface ^^ to MongoDB.
 - PyMongo for indexes, weird syntax in ODM
 
+We find it useful to not worry too much about data duplication and the rest of the "schema" just make things more intuitive to think about.
 
 ### Security concerns - TODO: refactor this
 DNA is personally identifying by definition. These are also affected individuals. All data needs to be handled with care. We are setting up the server with restricted IP access. We require 2 factor Oauth sign in for all users. We log every action taken on the site. Using Flask extensions have made this learning process entirely doable.
