@@ -1,46 +1,71 @@
-## What are we doing?
-Diagnosing children with rare inherited diseases is a process that's often shrouded in mystery. Patients can go undiagnosed for 15 years, if they survive that long. Each individual test can only ever give indications of what the cause of the symtoms really is.
+# Outline, slides
 
-In contrast, using DNA sequencing technologies, we are able to go straight for the root cause of the disorder and deliver conclusive results in *two weeks*. As the patient sample travels through our facility thousands of lines of Python code will eventually touch it.
+## Clinical Genomics and our mission
+Clinical Genomics at SciLifeLab: 5 min analysis
 
-This has tremendous effect on patients, families, and society/healthcare system. It can lead to treatment, knowledge of our bodies, and reduced suffering for everyone involved.
+Bridge the gap between sending raw data to computer savvy researchers vs. only somewhat computer litterate genetecists and doctors. Basically it means processing the data as far as possible and intuitively visualize it.
+
+## Genomics in healthcare today
+We focus on rare inherited disoders. They are often severe and have simple
+cause-effect relationships. You find a defect gene and there's your cause.
+Done. But it's not quite so simple most of the time.
+
+Patients can go undiagnosed for 15 years, if they
+survive that long. Each individual test can only ever give indications of
+what the cause of the symtoms really is.
 
 However, people still hesitate mainly because of the high initial cost and because the analysis is not trivial. Someone compared it to: "looking for a needle in a haystack ... of needels". For each patient, relatively, we generate huge amounts of data, 99.9% of which no one really knows what to do with or interpret.
 
 Prices are coming down rather rapidly but to be honest it's a little like nuclear power plants - we generate a lot of "waste" that no ones has figured out a plan to do with.
 
-## Why are we doing this? Non-python
+In contrast, using DNA sequencing technologies, we are able to go straight for the root cause of the disorder and deliver conclusive results in *two weeks*. As the patient sample travels through our facility thousands of lines of Python code will eventually touch it.
+
+Clinics already routinely send in patient samples for sequencing. This is pretty cool because healthcare is infamous for not moving very fast or adapting new technology.
+
+## Excel sheet -> Web interface
+What these guys are delivering to researchers is very basic text files usually. Low level data that needs a lot of processing to start making sense. We have to ambition to take things a lot further. Basically we want to eliminate the need for any further compute processing after we deliver our results.
+
+Instead of giving users extensive tools to filter out the interesting results we tend to prioritize what they should look into first. The ambition is that this is routine work and not exploratory research so it makes sense. This is also what many similar tools are focused on; filtering etc.
+
+First attempt: Excel... at least it's familiar to most people. Soon enough it got out of hand. It was very inflexible to work with. It also took too much time to look into each case to be practical.
+
 - In the beginning there was ... Excel
   - Thousands of rows in an unwieldy, and inherently static grid
 
-- Reasons to improve
-  - we are dealing with routine tasks more than exploratory research
-    - prioritize variants and focus less on filtering for example
-  - quicker turn-around times
-  - automate parts that can be automated (free up doctors)
+## Scale: JavaScript vs. Python code, swinging over
+Kind of the oposite of where most of the web seems to be heading but this is a professional, clinical grade tool and we don't need to concern ourselves with user appeal too much. But it's always fun to make something pretty.
 
-- We want to revolutionize healthcare.
-  - [insert Clinical Genomics objectives]
+- in the beginning there was ... lots of JavaScript
+    - mostly non-updating data, big tables, sluggish performance
+  - we repented: rely on server side + minimize client side
+  - easier for us to collaborate
+  - more performant
+  - iteration and testing *much* simpler
+  - users just want to get their work done
+  - doing it in Python >> JavaScript
 
-If we do it right it can help both doctors and patients. If we don't the whole project will be slowed down.
-
-## What are we going to cover?
-- Flask app + MongoDB/MongoEngine
-- Logging??
 - Jinja/Flask best practises
   + Macros in templates are something you often forget about
 
-Hopefully I can share some best practises around working with Flask and teach you something new to test in your own projects.
+- leverage components (Vue.js and SCSS) on what client side we have
+  - don't need to mess too much with jQuery.
+  - Jinja filter for {{}}
+  - Web components syntax
 
-## How does the field look like? Current situation (not essential)
-- Lots of activity around the world (GB)
-- Many "competitors" focus on research + more complicated to work with
+## Copy conventions from GitHub
+URL conventions (real names, consistency)
+Form to submit a logout button press
+Mostly server side rendered, partly client side magic, components
 
-## What is the unique problems? - how are you solving them?
-- close collaboration with end users
-  - blessing and a curse
-  - likely to deliver what they want
-  - risk of building something that is too tailored to be useful for others
+## MongoDB + MongoEngine
+We find it useful to not worry too much about data duplication and the rest of the "schema" just make things more intuitive to think about.
+
+MongoEngine as an interface to MongoDB
+PyMongo for indexes, weird syntax in ODM (don't know much about this though...)
+
+- Bring up simplified example for comments
+  - This is different than most regular setups because we need to separates comments between institutes and cases...
+  - Much more intuitive in MongoDB
 
 - clinical/sensitive nature of data
   - strict guidelines
@@ -49,41 +74,5 @@ Hopefully I can share some best practises around working with Flask and teach yo
     - can't share anything between different entetites (customer clinics)
     - global frequencies would greatly benefit the end product
 
-### Server side rendering galore
-- in the beginning there was ... chaos
-  - Flask+Tornado + lots of JavaScript
-    - mostly non-updating data, big tables, sluggish performance
-  - we repented: rely on server side + minimize client side
-  - easier for us to collaborate
-  - it more performant
-  - iteration and testing *much* simpler
-  - users just want to get their work done
-  - doing it in Python >> JavaScript
-
-- tip: look at GitHub site and copy conventions!
-  + How they order URLs
-  + What's server side vs. client side rendered
-  + Log out issues resolved when adding a form
-
-- leverage components (Vue.js and SCSS) on what client side we have
-  - don't need to mess too much with jQuery.
-  - Jinja filter for {{}}
-  - Web components syntax
-
-### Why did we opt for MongoDB?
-- Bring up simplified example for comments
-  - This is different than most regular setups because we need to separates comments between institutes and cases...
-  - Much more intuitive in MongoDB
-
-To also get into some actual Python code and conventions I could talk about using MongoEngine as an interface ^^ to MongoDB.
-- PyMongo for indexes, weird syntax in ODM
-
-We find it useful to not worry too much about data duplication and the rest of the "schema" just make things more intuitive to think about.
-
-### Security concerns - TODO: refactor this
-DNA is personally identifying by definition. These are also affected individuals. All data needs to be handled with care. We are setting up the server with restricted IP access. We require 2 factor Oauth sign in for all users. We log every action taken on the site. Using Flask extensions have made this learning process entirely doable.
-
-We essentially store the entire Oauth code under a single Blueprint which keeps it's implementation separate from the rest of the code. Loose coupling. We also use MongoEngine as a nice interface to deal with documents in the database as objects in Python.
-
-One interesting point to talk about would perhaps be what it's like to be forced to validate every release. What are the up- and downsides? What do we need to think about extra and what consequences does this how on our development work flow.
-  - Examples: bugs like not sorting the list of samples, incorrect GT call
+## Concluding remarks
+Promote inhouse developed open source projects
