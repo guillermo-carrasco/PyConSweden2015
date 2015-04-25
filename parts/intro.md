@@ -1,7 +1,19 @@
 # Introduction
 
 ## 1. What makes Python uniquely capable of handling NGS data?
-*Even to people outside science, I think this could be an interesting topic.*
+
+Python is a very versatile and easy to use language. It is famous for having a very
+quick learning curve:
+
+![Python XKCD](/assets/python.png?raw=True)
+
+This eases the introduction to programming to people not used to it like may be
+molecular biologists or scientists in general. Also the fact that it is so widely
+used gives new programmers a lot of extra help in forums, tutorials, conferences, etc.
+
+A strong feature in life sciences is how easy it is to work with files and strings in Python, since
+_every_ scientific computing program needs to work with input files, as basically they work with results
+from lab experiments that come in a large range of different formats.
 
 ## 2. Who are these two guys?
 Spanish vs. Swedish, CS vs. Biology, DevOps vs. Design
