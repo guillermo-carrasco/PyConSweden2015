@@ -1,70 +1,130 @@
 # Outline, slides
 
-## Clinical Genomics and our mission
-Clinical Genomics at SciLifeLab: 5 min analysis
 
-Bridge the gap between sending raw data to computer savvy researchers vs. only somewhat computer litterate genetecists and doctors. Basically it means processing the data as far as possible and intuitively visualize it.
+## Clinical Genomics
+Core facility at SciLifeLab
+
+### How are we different from NGI?
+Bridge the gap between sending raw data to computer savvy researchers vs.
+only somewhat computer litterate genetecists and doctors. Basically it
+means processing the data as far as possible and intuitively visualize it.
+
+### Mission
+5 min analysis
+
 
 ## Genomics in healthcare today
-We focus on rare inherited disoders. They are often severe and have simple
-cause-effect relationships. You find a defect gene and there's your cause.
-Done. But it's not quite so simple most of the time.
+In fact, clinics already routinely send in patient samples for sequencing.
+This is pretty cool because healthcare is *not* famous for moving fast or
+adopting new technology.
 
-Patients can go undiagnosed for 15 years, if they
-survive that long. Each individual test can only ever give indications of
-what the cause of the symtoms really is.
+The focus area for us is diagnosis of rare inherited disoders. They are
+an ideal case to bring genomics into the clinic. The symptoms are often
+severe and develop early in life, the cause is 100% genetic, and the
+cause-effect relationship is therefore rather simple. Basically, you
+find a defect gene and there's your cause. But figuring out what gene you
+are looking for isn't quite so easy.
 
-However, people still hesitate mainly because of the high initial cost and because the analysis is not trivial. Someone compared it to: "looking for a needle in a haystack ... of needels". For each patient, relatively, we generate huge amounts of data, 99.9% of which no one really knows what to do with or interpret.
+If we step back a bit; these patients can go undiagnosed for 15 years,
+if they survive that long. Each individual test can only ever give
+indications of what the cause of the disorder really is.
 
-Prices are coming down rather rapidly but to be honest it's a little like nuclear power plants - we generate a lot of "waste" that no ones has figured out a plan to do with.
+In contrast, using DNA sequencing technologies, we are able to go straight
+for the root cause of the disorder and deliver conclusive results in *two
+weeks*.
 
-In contrast, using DNA sequencing technologies, we are able to go straight for the root cause of the disorder and deliver conclusive results in *two weeks*. As the patient sample travels through our facility thousands of lines of Python code will eventually touch it.
+So why are people still hesitant?
 
-Clinics already routinely send in patient samples for sequencing. This is pretty cool because healthcare is infamous for not moving very fast or adapting new technology.
+1. The high initial cost. One challenge is to prove that sequencing can
+   effetively replace many of the old inconclusive tests.
+
+2. Analysis of data is neither trivial nor standardized. For example how
+   do you distingish an error from a mutation? Essentially 99.9% of the
+   data generated is either too difficult to interpret or completely
+   non-informative. Most sequences are just the same as what we know we
+   find healthy individuals. To be honest we are generating a lot of
+   "waste" that no ones has figured out a plan to do with. Kind of like
+   a nuclear power plant.
+
+As the patient sample travels through our facility thousands of lines of
+Python code will eventually touch it. I'm going to focus on the delivery
+report.
+
 
 ## Excel sheet -> Web interface
-What these guys are delivering to researchers is very basic text files usually. Low level data that needs a lot of processing to start making sense. We have to ambition to take things a lot further. Basically we want to eliminate the need for any further compute processing after we deliver our results.
+What these guys [point to Guillermo] are delivering to researchers is very
+basic text files usually. Low level data that needs a lot of processing to
+start making sense. We have the ambition to take things a lot further.
+Basically we want to eliminate the need for any further non-manual
+processing after we deliver our results.
 
-Instead of giving users extensive tools to filter out the interesting results we tend to prioritize what they should look into first. The ambition is that this is routine work and not exploratory research so it makes sense. This is also what many similar tools are focused on; filtering etc.
+We also don't focus much on providing extensive tools to filter out the
+interesting data but more on prioritizing what they should look into first.
+This is meant to be part of routine work and not exploratory research so
+it makes sense.
 
-First attempt: Excel... at least it's familiar to most people. Soon enough it got out of hand. It was very inflexible to work with. It also took too much time to look into each case to be practical.
+In the beginning there was ... Excel. At least it's something familiar to
+most people. Soon enough it got out of hand. It was very inflexible to
+work with. Thousands of rows in an unwieldy, and inherently static grid.
+It also took too much time to look into each case to be practical.
 
-- In the beginning there was ... Excel
-  - Thousands of rows in an unwieldy, and inherently static grid
+[introduce Scout interface]
+
 
 ## Scale: JavaScript vs. Python code, swinging over
-Kind of the oposite of where most of the web seems to be heading but this is a professional, clinical grade tool and we don't need to concern ourselves with user appeal too much. But it's always fun to make something pretty.
+In the beginning there was ... lots of JavaScript. But our input isn't
+optimized for this kind of setup: we have mostly non-updating data and
+big tables which gives for sluggish client side performance.
 
-- in the beginning there was ... lots of JavaScript
-    - mostly non-updating data, big tables, sluggish performance
-  - we repented: rely on server side + minimize client side
-  - easier for us to collaborate
-  - more performant
-  - iteration and testing *much* simpler
-  - users just want to get their work done
-  - doing it in Python >> JavaScript
+Kind of the oposite of where most of the web seems to be heading but this
+is a professional, clinical grade tool and we don't need to concern
+ourselves with user appeal too much. But it's always fun to make something
+pretty.
 
-- Jinja/Flask best practises
-  + Macros in templates are something you often forget about
+The upsides are many: easier for us to collaborate because we stick to
+what everyone already is familiar with (Python), more performant on our
+data, iteration and testing *much* simpler, and doing it in Python >>
+JavaScript.
 
-- leverage components (Vue.js and SCSS) on what client side we have
-  - don't need to mess too much with jQuery.
-  - Jinja filter for {{}}
-  - Web components syntax
+### Jinja/Flask best practises
+One thing I've started using but for some reason keep forgetting about
+is macros in Jinja templates. Perhaps it's worth lifting them up. They
+should be as useful as functions in regular Python code!
+
+### When you have to render client side code
+My suggestion is to leverage components (Vue.js and SCSS). This way you
+can avoid messing too much with jQuery and the end result can be very
+nicely declerative using web components syntax. To avoid the clash in
+template language syntax there's you can add a custom Jinja filter to
+escape ``{{}}``.
+
 
 ## Copy conventions from GitHub
-URL conventions (real names, consistency)
-Form to submit a logout button press
-Mostly server side rendered, partly client side magic, components
+I've always admired the GitHub website. They manage to present a lot of
+information in a consistent and intuitive way. I've used it many times to
+look for inspiration on how to solve problems. One of the cool things is
+how the seems to strike a very nice balance between mostly server side
+rendered templates and a sprinkle of client side magic.
+
+- Follow the same huminized URL conventions. The URL should say something
+  to the user if possible, not just be some random hash ID from a
+  database.
+
+- Just to give you an insight in my process I could explain how they
+  handle a simple logout form. Under the button hides a sign out form
+  that gets submitted.
+
 
 ## MongoDB + MongoEngine
-We find it useful to not worry too much about data duplication and the rest of the "schema" just make things more intuitive to think about.
+We find it useful to not worry too much about data duplication and the
+rest of the "schema" just make things more intuitive to think about.
 
 MongoEngine as an interface to MongoDB
 PyMongo for indexes, weird syntax in ODM (don't know much about this though...)
 
 - Bring up simplified example for comments
-  - This is different than most regular setups because we need to separates comments between institutes and cases...
+  - This is different than most regular setups because we need to
+    separates comments between institutes and cases...
   - Much more intuitive in MongoDB
 
 - clinical/sensitive nature of data
@@ -73,6 +133,7 @@ PyMongo for indexes, weird syntax in ODM (don't know much about this though...)
   - e.g. personally idetifiable data; it's in the nature of the data!
     - can't share anything between different entetites (customer clinics)
     - global frequencies would greatly benefit the end product
+
 
 ## Concluding remarks
 Promote inhouse developed open source projects
