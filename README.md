@@ -67,7 +67,8 @@ the new [Illumina machines](http://www.illumina.com/systems/hiseq-x-sequencing-s
 for sequencing can produce around 2TB of data composed by millions of files in less
 than 3 days.
 
-The first part will focus of a Python pipeline developed at Science For Life Laboratory for the automated analysis of all of that data, the [NGI-pipeline](https://github.com/NationalGenomicsInfrastructure/ngi_pipeline).
+First part will focus on how we use Python for the management and automated
+analysis of billions of DNA sequences for research focused projects.
 
 The second part will tell the story of how Python is at the center of a medical revolution. It will focus on how we have fundamentally changed the way we deliver data to "regular" clinicians using a Flask powered website.
 

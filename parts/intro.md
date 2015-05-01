@@ -1,10 +1,22 @@
 # Introduction
 
 ## 1. What makes Python uniquely capable of handling NGS data?
-*Even to people outside science, I think this could be an interesting topic.*
+
+Python is a very versatile and easy to use language. It is famous for having a very
+quick learning curve:
+
+![Python XKCD](/assets/python.png?raw=True)
+
+This eases the introduction to programming to people not used to it like may be
+molecular biologists or scientists in general. Also the fact that it is so widely
+used gives new programmers a lot of extra help in forums, tutorials, conferences, etc.
+
+A strong feature in life sciences is how easy it is to work with files and strings in Python, since
+_every_ scientific computing program needs to work with input files, as basically they work with results
+from lab experiments that come in a large range of different formats.
 
 ## 2. Who are these two guys?
-Spanish vs. Swedish, CS vs. Biology, Design vs. DevOps
+Spanish vs. Swedish, CS vs. Biology, DevOps vs. Design
 
 ### Robin Andeer
 My name is Robin Andeer and I solve medical mysteries at SciLifeLab. Many people would probably label me a "scientific programmer".
@@ -20,7 +32,22 @@ I believe this story resonates with many "scientific" programmers. Some of the m
 
 ### Guillermo Carrasco
 
-> How did Guillermo end up in life science?
+My name is Guillermo Carrasco and I am a software engineer infiltrated between biologists :)
+
+To be honest, I ended up in Life Sciences by pure chance. A couple of years ago I was
+looking for a part time job to pay my engineering studies in Spain, and I saw a system
+administration job advertisement at the Molecular Biology Institute of Barcelona. After
+applying and being hired, I started working with people that were so passionate
+about what they were doing that they were willing to learn how to code by themselves
+in order to achieve what they were looking for. I've always admire that so much, took
+me 5 years of university!
+
+I decided to do my Msc.Thesis abroad and this is how I ended up in Science For Life
+Laboratory, where my interest on life science has been growing and growing, always
+motivated by the strong open source and collaborative environment that is
+growing among scientists.
+
+Nowadays I spend my day helping researchers with data management and software development.
 
 ## 3. Misc.
 Reverse the question: what if Python didn't exist?
