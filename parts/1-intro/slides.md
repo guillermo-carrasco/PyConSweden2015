@@ -1,6 +1,6 @@
 # Introduction
 
-## 0. Introduction to Genomics and DNA
+## 0. Brief introduction to genomics
 Compare DNA and other concepts to programming!
 
 1. The DNA is byte code but instead of 0s and 1s we have As, Cs, Ts, and Gs.
@@ -13,16 +13,23 @@ Compare DNA and other concepts to programming!
    which make up the software for your body.
 
 4. Lastly this code is run inside the cell which is the hardware that understands what
-   to make of the code. Basically you can a cell and "boot it up" with whatever DNA
-   source code you want.
+   to make of the code. Basically you can "boot up" a cell with whatever DNA source
+   code you want.
 
+### How is the data generated?
+...
+
+### How is it clinically useful?
 The genome is your genes, your DNA. It's the inheritable code that determines
 fundamentally how you will develop. When the code is passed down from parents to child,
 the entire code is copied and mixed manually. This process introduces bugs, most of
 which are perfectly benign. But when they rarely cause disease we are interested in
 finding and learning more about them.
 
+
 ## 1. What makes Python uniquely capable of handling NGS data?
+[Why python?](http://www.nature.com/news/programming-pick-up-python-1.16833)
+
 Python is a very versatile and easy to use language. It is famous for having a very
 quick learning curve:
 
@@ -35,7 +42,7 @@ used gives new programmers a lot of extra help in forums, tutorials, conferences
 A strong feature in life sciences is how easy it is to work with files and strings in
 Python, since _every_ scientific computing program needs to work with input files, as
 basically they work with results from lab experiments that come in a large range of
-different formats.
+different formats. Perfect for glueing tools together.
 
 As a general purpose yet simple language for beginners, this is probably also why
 Python is so prevalent in bioinformatics. In fact Python is at near monopoly in Science
