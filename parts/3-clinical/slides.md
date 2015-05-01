@@ -8,6 +8,8 @@ Core facility at SciLifeLab
 Bridge the gap between sending raw data to computer savvy researchers vs.
 only somewhat computer litterate genetecists and doctors. Basically it
 means processing the data as far as possible and intuitively visualize it.
+The massive amounts of data can't simple be summed up in a pretty little graph
+anymore.
 
 ### Mission
 5 min analysis
@@ -16,7 +18,8 @@ means processing the data as far as possible and intuitively visualize it.
 ## Genomics in healthcare today
 In fact, clinics already routinely send in patient samples for sequencing.
 This is pretty cool because healthcare is *not* famous for moving fast or
-adopting new technology.
+adopting new technology. Now cutting edge research is using the same tools as in
+the clinic.
 
 The focus area for us is diagnosis of rare inherited disoders. They are
 an ideal case to bring genomics into the clinic. The symptoms are often
@@ -121,6 +124,18 @@ rest of the "schema" just make things more intuitive to think about.
 
 MongoEngine as an interface to MongoDB
 PyMongo for indexes, weird syntax in ODM (don't know much about this though...)
+
+We can often repopulate the data from the file system if thing go wrong. Integrity of
+the database isn't super duper important.
+
+Being non-database experts the data model is a lot more intuitive! Nesting comments etc.
+
+IMPORTANT: we need to keep track of what we've uploaded and be able to repopulate the
+same information on request for old samples. You upload data once per sample and make
+the clinical interpretation based on that. It can never change! We also can't share data
+as much as you might want to think. Each sample needs to be pretty isolated form the
+rest and especially between different institutes. So we can't make use of aggresive
+normalization even if we wanted. This makes Mongo attractive as well!
 
 - Bring up simplified example for comments
   - This is different than most regular setups because we need to
