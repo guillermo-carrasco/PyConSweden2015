@@ -1,6 +1,18 @@
 # Introduction
 
 ## 0. Brief introduction to genomics
+
+Bioinformatics is an interdisciplinary field that aims to develop and improve methods
+to retrieve, store, organize and analyze biological data. It encompasses an extensive
+number of research areas, which makes it difficult to precisely define it.
+
+In genomics, the necessity of understanding the DNA structure has driven the development
+of Bioinformatics. Nowadays, 3 days long sequencing experiments on a single machine with the newest sequencing
+technologies can generate as much amount of data as entire genome centers a few years
+ago. This translates into an exponential growth of the information available, which
+created the **need** of well designed and written software to manage and analyze this
+data.
+
 Compare DNA and other concepts to programming!
 
 1. The DNA is byte code but instead of 0s and 1s we have As, Cs, Ts, and Gs.
