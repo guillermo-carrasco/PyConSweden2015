@@ -8,11 +8,10 @@ Core facility at SciLifeLab
 Bridge the gap between sending raw data to computer savvy researchers vs.
 only somewhat computer litterate genetecists and doctors. Basically it
 means processing the data as far as possible and intuitively visualize it.
-The massive amounts of data can't simple be summed up in a pretty little graph
-anymore.
+The massive amounts of data can't simply be summed up in a pretty little graph.
 
 ### Mission
-5 min analysis
+5 min analysis - would bring DNA sequencing into routine practise
 
 
 ## Genomics in healthcare today
@@ -89,40 +88,12 @@ what everyone already is familiar with (Python), more performant on our
 data, iteration and testing *much* simpler, and doing it in Python >>
 JavaScript.
 
-### Jinja/Flask best practises
-One thing I've started using but for some reason keep forgetting about
-is macros in Jinja templates. Perhaps it's worth lifting them up. They
-should be as useful as functions in regular Python code!
-
-### When you have to render client side code
-My suggestion is to leverage components (Vue.js and SCSS). This way you
-can avoid messing too much with jQuery and the end result can be very
-nicely declerative using web components syntax. To avoid the clash in
-template language syntax there's you can add a custom Jinja filter to
-escape ``{{}}``.
-
-
-## Copy conventions from GitHub
-I've always admired the GitHub website. They manage to present a lot of
-information in a consistent and intuitive way. I've used it many times to
-look for inspiration on how to solve problems. One of the cool things is
-how the seems to strike a very nice balance between mostly server side
-rendered templates and a sprinkle of client side magic.
-
-- Follow the same huminized URL conventions. The URL should say something
-  to the user if possible, not just be some random hash ID from a
-  database.
-
-- Just to give you an insight in my process I could explain how they
-  handle a simple logout form. Under the button hides a sign out form
-  that gets submitted.
-
 
 ## MongoDB + MongoEngine
 We find it useful to not worry too much about data duplication and the
 rest of the "schema" just make things more intuitive to think about.
 
-MongoEngine as an interface to MongoDB
+MongoEngine as an interface to MongoDB - we've built our API around it!
 PyMongo for indexes, weird syntax in ODM (don't know much about this though...)
 
 We can often repopulate the data from the file system if thing go wrong. Integrity of
@@ -152,3 +123,19 @@ normalization even if we wanted. This makes Mongo attractive as well!
 
 ## Concluding remarks
 Promote inhouse developed open source projects
+
+
+## [BONUS] Steal conventions from GitHub
+I've always admired the GitHub website. They manage to present a lot of
+information in a consistent and intuitive way. I've used it many times to
+look for inspiration on how to solve problems. One of the cool things is
+how the seems to strike a very nice balance between mostly server side
+rendered templates and a sprinkle of client side magic.
+
+- Follow the same huminized URL conventions. The URL should say something
+  to the user if possible, not just be some random hash ID from a
+  database.
+
+- Just to give you an insight in my process I could explain how they
+  handle a simple logout form. Under the button hides a sign out form
+  that gets submitted.
