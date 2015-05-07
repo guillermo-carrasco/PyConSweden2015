@@ -1,13 +1,13 @@
 ## TACA - Preprocessing
 
-First and foremost, data needs to go from the sequencer to a machine were the
-preprcessing is done. This is done in local servers because of two reasons.
+First and foremost, data needs to move from the sequencer to a machine where the
+preprocessing is done. This is done on local servers for two reasons:
 
 1. The preprocessing of the data is highly I/O intensive (converting the images
-that the instrument's camera takes into A-C-T-G strings). This makes it non-doable
-for mounted or shared filesystems like the ones our HPC is running.
-2. We take care of the back up of the data locally, so having this data locally
-for a while is a must.
+that the instrument's camera takes into an A-C-T-G string). This task is infeasible
+on mounted or shared filesystems like the ones our HPC is running.
+2. We take care of the back up of the data locally, so having this data available
+locally for a while is a must.
 
 The biggest problem that we have with this solution is storage. The amount of data
 generated, specially after the acquisition of new instruments recently, is huge.
@@ -20,9 +20,9 @@ this is nowadays impossible.
 _NOTE: A slide with a flowchart for TACA will go with this explanation_
 
 **TACA - Tool for the Automated Cleanup and Analysis** is a tool completely written
-in Python 2.7 that does precisely this. When a machine finished sequencing, TACA
-starts automatically the preprocessing of that data in the local servers. To do so
-a cronjob that runs every hour checks the status files that the machine generates,
+in Python 2.7 that does precisely this. When a machine has finished sequencing, TACA
+automatically starts the preprocessing of that data on the local servers. To do so,
+a cronjob that runs every minute checks the status files that the machine generates;
 this is tremendously easy to do in Python.
 
 When the preprocessing of the data is done, the resulting data is sent to our HPC
@@ -67,7 +67,7 @@ _show here Mario's flowchart? maybe simplifyed_.
 analysis are done, or else that they failed. In any case, human intervention is
 needed _only_ to check the final results, but all the repetitive and tedious tasks
 of formatting data and directories, running analysis and gathering results is done
-automatically. 
+automatically.
 
 Icons in the slides (slightly modified):
 
