@@ -1,6 +1,5 @@
 # Outline, slides
 
-
 ## Clinical Genomics
 Core facility at SciLifeLab
 
@@ -12,98 +11,106 @@ The massive amounts of data can't simply be summarized in a pretty little graph
 anymore.
 
 ### Mission
-5 min analysis
+5 min analysis - would bring DNA sequencing into routine practise
 
+## What?
+Diagnose disoders that are 100% genetic, 100% inheritable. They often develop early
+in life. These disorders are often rare and cause severe symptoms. Finding out the
+cause of such a disoder can have tremendous beneficial effects for the patient,
+family, and healthcare system.
 
-## Genomics in healthcare today
-In fact, clinics already routinely send patient samples for sequencing.
-This is pretty cool because healthcare is *not* famous for moving fast or
-adopting new technology. Now, cutting-edge research is using the same tools as
-the clinic.
+The use of DNA sequencing in healthcare is pretty cool! Hospitals are *not* famous
+or moving fast or quickly adopting new technology. Now they are using the same tools
+as cutting edge research.
 
-The focus area for us is diagnosis of rare inherited disorders. They are
-an ideal case to bring genomics into the clinic. The symptoms are often
-severe and develop early in life, the cause 100% genetic, and the
-cause-effect relationship therefore rather simple. Basically, you
-find a single defective gene and there's your cause. But figuring out
-which gene you are looking for isn't quite so easy.
-
-To step back a bit: these patients can go undiagnosed for 15 years,
-if they survive that long. Each individual standard clinical test can
-only ever give indications of what the cause of the disorder might be.
+## Why?
+Patients can go undiagnosed for 15 years
+Todays blunt tests give only vague indications of waht could be cusing these
+disoders.
 
 In contrast, using DNA sequencing technologies, we are able to go straight
 for the root cause of the disorder and deliver conclusive results in *two
 weeks*.
 
-So why are people still hesitant?
+## How?
+As the patient sample travels through our facility thousands of lines of
+Python code will eventually touch it. I'm going to focus on the delivery
+report.
 
+This is the story...
+
+
+## Excel sheet -> Web interface
+In the beginning there was ... Excel. At least it's something familiar to
+most people. Soon enough it got out of hand. It was very inflexible to
+work with. Thousands of rows in an unwieldy and inherently static grid.
+
+Researchers you can give very basic text files that need a lot of processing to
+start making sense. We want to eliminate the need for any further non-manual
+processing after we deliver our results.
+
+
+## The Scout interface
+To reduce the time it takes to go over each case we focus a lot of prioritizing the
+information. This helps doctors to know what they should look at first. This is meant
+to be part of routine work and not exploratory research so it makes sense.
+
+
+## JavaScript vs. Python code
+And then there was ... lots of JavaScript. But our input isn't optimized for this
+kind of setup: we have mostly non-updating data and big tables which gives for
+sluggish client side performance.
+
+I can confess that when I started this project I saw it as a great opportunity to
+learn more about e.g. Ember.js so I just picked it for the project. Only after my geek
+entuthiasm had died down did I realize that this is a professional, clinical grade tool
+and we shouldn't concern ourselves with user appeal too much.
+
+The upsides are many: easier for us to collaborate because we stick to what everyone
+already is familiar with (Python), more performant on our data, iteration and testing
+*much* simpler, and doing it in Python >> JavaScript.
+
+
+## MongoDB + MongoEngine
+We implemented the backend in MySQL to begin with but decided to switch to MongoDB
+when we went through a major refactor. There are a few undeniable upsides such as
+the much simplified and more intuitive data model with e.g. nested comments. We can
+also repopulate almost all data from the file system if thing do go wrong. Integrity
+of the database isn't super duper important. The data that gets added over time is
+limited and not always mission critical.
+
+But most importantly; we need to keep track of what we've uploaded and be able to
+repopulate the same information on request for old samples. You upload data once per
+sample and make the clinical interpretation based on that. It can never change! We
+also can't share data as much as you might want to think. Each sample needs to be
+pretty isolated form the rest and especially between different institutes. So we
+can't make use of aggresive normalization even if we wanted. This makes MongoDB
+attractive as well!
+
+### MongoEngine ODM as the API
+MongoEngine as an interface to MongoDB - we've built our API around it!
+Finally a chance to show some code examples ^^
+
+
+## Concluding remarks
+Promote inhouse developed open source projects!
+
+-----------------------------
+
+## [BONUS] So why are people still hesitant?
 1. The high initial cost. One challenge is to prove that sequencing can
-   effectively replace many of the old inconclusive tests.
+   effetively replace many of the old inconclusive tests.
 
 2. Analysis of data is neither trivial nor standardized. For example how
    do you distingish an error from a mutation? Essentially 99.9% of the
    data generated is either too difficult to interpret or completely
-   non-informative. Most sequences are just the same as those we know we
-   find in healthy individuals. To be honest, we are generating a lot of
-   "waste" that no ones has figured out what to do with. Kind of like
+   non-informative. Most sequences are just the same as what we know we
+   find healthy individuals. To be honest we are generating a lot of
+   "waste" that no ones has figured out a plan to do with. Kind of like
    a nuclear power plant.
 
-As the patient sample travels through our facility, thousands of lines of
-Python code will eventually touch it. I'm going to focus on the delivery
-report.
-
-
-## Excel sheet -> Web interface
-What these guys [point to Guillermo] are delivering to researchers are
-generally very basic text files: low-level data that needs a lot of
-processing to become understandable. We have the ambition to take things
-a lot further. Essentially, we want to eliminate the need for any further
-non-manual processing of the results we deliver.
-
-We also don't focus much on providing extensive tools to filter out the
-interesting data, but instead on prioritizing what they should look into
-first. This is meant to be part of routine work and not exploratory research
-so it makes sense.
-
-In the beginning there was... Excel. At least it's something familiar to
-most people. Soon enough it got out of hand. It was very inflexible to
-work with. Thousands of rows in an unwieldy and inherently static grid.
-It also took too much time to look into each case to be practical.
-
-[introduce Scout interface]
-
-
-## Scale: JavaScript vs. Python code, swinging over
-In the beginning there was... JavaScript. _Lots of_ Javascript. But our
-input isn't optimized for this kind of setup: we have mostly static data
-and big tables which makes client-side performance sluggish.
-
-Most of the web seems to be heading in the opposite direction, but this
-is a professional, clinical grade tool and we don't need to concern
-ourselves with user appeal too much; however, it's always fun to make
-something pretty.
-
-The upsides are many: it's easier for us to collaborate because we stick to
-what everyone already is familiar with (Python); the performance is better
-for our data; iteration and testing is *much* simpler, and doing it in
-Python >> JavaScript.
-
-### Jinja/Flask best practises
-One thing I've started using but for some reason keep forgetting about
-is macros in Jinja templates. Perhaps it's worth lifting them up. They
-should be as useful as functions in regular Python code!
-
-### When you have to render client side code
-My suggestion is to leverage components (Vue.js and SCSS). This way you
-can avoid messing too much with jQuery and the end result can be very
-nicely declarative using the syntax of web components. To avoid the clash
-in template language syntax you can add a custom Jinja filter to escape
-``{{}}``.
-
-
-## Copy conventions from GitHub
-I've always admired the GitHub website: they manage to present a lot of
+## [BONUS] Steal conventions from GitHub
+I've always admired the GitHub website. They manage to present a lot of
 information in a consistent and intuitive way. I've used it many times to
 look for inspiration on how to solve problems. One of the cool things is
 how this seems to strike a very nice balance between mostly server-side
@@ -115,39 +122,3 @@ rendered templates and a sprinkle of client-side magic.
 - Just to give an insight into my process I could explain how they
   handle a simple logout form. Under the button hides a sign out form
   that gets submitted.
-
-
-## MongoDB + MongoEngine
-We find it useful to not worry too much about data duplication and the
-rest of the "schema" just make things more intuitive to think about.
-
-MongoEngine as an interface to MongoDB
-PyMongo for indexes, weird syntax in ODM (don't know much about this though...)
-
-We can often repopulate the data from the file system if thing go wrong. Integrity of
-the database isn't super duper important.
-
-Being non-database experts the data model is a lot more intuitive! Nesting comments etc.
-
-IMPORTANT: we need to keep track of what we've uploaded and be able to repopulate the
-same information on request for old samples. You upload data once per sample and make
-the clinical interpretation based on that. It can never change! We also can't share data
-as much as you might think. Each sample needs to be pretty isolated from the rest and
-especially between different institutes. So we can't make use of aggresive normalization
-even if we wanted. This makes Mongo attractive as well!
-
-- Bring up simplified example for comments
-  - This is different than most regular setups because we need to
-    separates comments between institutes and cases...
-  - Much more intuitive in MongoDB
-
-- clinical/sensitive nature of data
-  - strict guidelines
-  - simple or low hanging fruit features are complicated
-  - e.g. personally idetifiable data; it's in the nature of the data!
-    - can't share anything between different entetites (customer clinics)
-    - global frequencies would greatly benefit the end product
-
-
-## Concluding remarks
-Promote in-house developed open source projects
