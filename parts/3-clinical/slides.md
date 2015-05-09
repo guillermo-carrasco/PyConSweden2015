@@ -1,74 +1,92 @@
 # Outline, slides
 
 ## Clinical Genomics
-Core facility at SciLifeLab
+Sister facility to NGI at SciLifeLab providing DNA sequencing capabilities to
+hospitals across Sweden.
 
-### How are we different from NGI?
-Bridge the gap between sending raw data to computer-savvy researchers vs.
-only somewhat-computer-literate geneticists and doctors. Basically it
-means processing the data as far as possible and intuitively visualizing it.
-The massive amounts of data can't simply be summarized in a pretty little graph
-anymore.
+One of the things that make working at our facility unique is that our end users
+tend to be only somewhat-computer-literate geneticists and doctors. This means that
+we need to find a way to process the data as far as possible before we intuitively
+visualizing it.
 
-### Mission
-5 min analysis - would bring DNA sequencing into routine practise
+We have a long term vision that after doctors recieve their "test results" from
+DNA sequencing it shouldn't take them more than 5 minutes to reach a diagnosis.
 
-## What?
-Diagnose disoders that are 100% genetic, 100% inheritable. They often develop early
-in life. These disorders are often rare and cause severe symptoms. Finding out the
-cause of such a disoder can have tremendous beneficial effects for the patient,
-family, and healthcare system.
+## Genomics in healthcare today
+The first clinical use of DNA sequencing is taking place in diagnosis of rare disoders
+that for the sake of this presentation are 100% genetic and 100% inheritable. They
+often develop early in life of the patients and cause severe symptoms.
+
+Right now the process is quite bleak. Patients meet with a doctor, run some tests,
+are sent home, some more tests are run, the see another doctor, home again... This
+can go on for 15 years without definitive answers.
+
+However using sequencing you have the possibility of finding out the root cause
+within 2 weeks. This can have tremendous beneficial effects for the patient, family,
+and healthcare system.
 
 The use of DNA sequencing in healthcare is pretty cool! Hospitals are *not* famous
 or moving fast or quickly adopting new technology. Now they are using the same tools
 as cutting edge research.
 
-## Why?
-Patients can go undiagnosed for 15 years
-Todays blunt tests give only vague indications of waht could be cusing these
-disoders.
-
-In contrast, using DNA sequencing technologies, we are able to go straight
-for the root cause of the disorder and deliver conclusive results in *two
-weeks*.
-
-## How?
-As the patient sample travels through our facility thousands of lines of
-Python code will eventually touch it. I'm going to focus on the delivery
-report.
-
-This is the story...
+Guillermo already talked about automation and analysis and we do about the same thing
+on our platform. Instead I will tell the story of the delivery report...
 
 
 ## Excel sheet -> Web interface
-In the beginning there was ... Excel. At least it's something familiar to
-most people. Soon enough it got out of hand. It was very inflexible to
-work with. Thousands of rows in an unwieldy and inherently static grid.
+In the beginning there was ... Excel. This is pretty close to the raw output of the
+data analysis. 6000 rows of variants along with a lot of annotations. From the
+perspective of some people this is rather intuitive and offers a familiar setup for
+the doctors.
 
-Researchers you can give very basic text files that need a lot of processing to
-start making sense. We want to eliminate the need for any further non-manual
-processing after we deliver our results.
+However, I think this shows the benefit of working with people from very different
+backgrounds. When I looked at this with some web developmend in my past I felt
+imidietly that we could do so much better!
 
 
 ## The Scout interface
-To reduce the time it takes to go over each case we focus a lot of prioritizing the
-information. This helps doctors to know what they should look at first. This is meant
-to be part of routine work and not exploratory research so it makes sense.
+So through a few major iterations we built a web interface that has become the de
+facto delivery report that doctors look at after they've sent in samples for sequencing.
+
+### Tech stack
+We're using a MongoDB database, I'll get back to this later, with a Flask server.
+Basically because this is what I was familiar with. We also make extensive use of
+other thrid party libraries such as Jinja2 for HTML templates and MongoEngine as an
+API for our database.
+
+We have to remember that we are dealing with sensitive clinical data. We are by no
+means security experts but what we do, do is to restrict access based on IP adresses,
+enforce two-step authentication on all user accounts, and encrypt data using SLL.
+
+### The interface
+Just to give you and idea what I'm talking about I'll show you the actual interface.
+This is where your doctor would login to review the results of one of the clinical
+tests.
+
+This view is where you would find the full list of all the variants, or possiblity
+disease causing alterations to the patients DNA. You can filter variants here and also
+click on one individual variant to reveal _all_ the annotations for it. We try to
+present the information so that as you scroll down you get into more detailed
+information that is only relevant if the variant is deemed interesting.
+
+Now let's get into some more technical aspects...
 
 
 ## JavaScript vs. Python code
-And then there was ... lots of JavaScript. But our input isn't optimized for this
-kind of setup: we have mostly non-updating data and big tables which gives for
-sluggish client side performance.
+An early version of the interface was built heavily around Ember.js. Why? I wanted to
+learn more about Ember.js and no one told me it would be a bad idea ;)
 
-I can confess that when I started this project I saw it as a great opportunity to
-learn more about e.g. Ember.js so I just picked it for the project. Only after my geek
-entuthiasm had died down did I realize that this is a professional, clinical grade tool
-and we shouldn't concern ourselves with user appeal too much.
+Basically I found out that big tables of non-updating data will give you sluggish
+performance without many benefits. So we rewrote most of the application with the idea
+in mind that this was a professional, clinical grade tool. If it gets the job done
+it isn't going to matter at all whether the page reloads or not.
 
-The upsides are many: easier for us to collaborate because we stick to what everyone
-already is familiar with (Python), more performant on our data, iteration and testing
-*much* simpler, and doing it in Python >> JavaScript.
+The upsides are many: it has made it easier for us to collaborate because we stick
+to what everyone already is familiar with, Python, it's improved performance, and
+iteration and testing is *much* simpler.
+
+Basically we've learned the lesson that when it's possible to do something in Python
+- do it in Python!
 
 
 ## MongoDB + MongoEngine
@@ -93,32 +111,14 @@ Finally a chance to show some code examples ^^
 
 
 ## Concluding remarks
-Promote inhouse developed open source projects!
+I have to take away messages to share. The first is how important it's been for us
+to be able to come together under a single language to do just about everthing we
+need to run a sequencing platform. Python allows us to do that unlike any other
+language.
 
------------------------------
+The second message is what a huge potential we have in science/academia of being
+leveraging open source development. Bioinformatics has a hig and lively open source
+community that are doing some amazing things.
 
-## [BONUS] So why are people still hesitant?
-1. The high initial cost. One challenge is to prove that sequencing can
-   effetively replace many of the old inconclusive tests.
-
-2. Analysis of data is neither trivial nor standardized. For example how
-   do you distingish an error from a mutation? Essentially 99.9% of the
-   data generated is either too difficult to interpret or completely
-   non-informative. Most sequences are just the same as what we know we
-   find healthy individuals. To be honest we are generating a lot of
-   "waste" that no ones has figured out a plan to do with. Kind of like
-   a nuclear power plant.
-
-## [BONUS] Steal conventions from GitHub
-I've always admired the GitHub website. They manage to present a lot of
-information in a consistent and intuitive way. I've used it many times to
-look for inspiration on how to solve problems. One of the cool things is
-how this seems to strike a very nice balance between mostly server-side
-rendered templates and a sprinkle of client-side magic.
-
-- Follow the same humanized URL conventions. The URL should say something
-  to the user if possible, not just be some random hash ID from a database.
-
-- Just to give an insight into my process I could explain how they
-  handle a simple logout form. Under the button hides a sign out form
-  that gets submitted.
+Internally we have decided to promote our inhouse developed open source projects
+through a web portal that you can all visit if you like at opensource.scilifelab.se.
