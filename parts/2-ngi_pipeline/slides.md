@@ -11,8 +11,9 @@ Someone (researcher/doctor) takes a sample of the organism/tissue they want to s
 they send it to us and, after some preparation in the laboratory we place the sample in the machine
 for sequencing. The machine converts the sample into binary information readable by a
 computer, in where after some processing, we obtain the "famous" A-C-T-G strings. The
-amount of data generated (deepnes of sequencing/coverage) is determined by both
-the quality of the sample and the type and configuration of the machines.
+amount of data generated (depth of sequencing/coverage) is determined both by
+the quality of the sample and the type and configuration of the machines. The more
+you can afford to sequence the better the quality of the final output.
 
 In the recent years, sequencing technology has improved vastly, which has lead to
 an exponential growth in the data generation capacity for those machines.
@@ -41,7 +42,7 @@ this is nowadays impossible.
 
 
 **TACA - Tool for the Automated Cleanup and Analysis** is a tool completely written
-in Python 2.7 that does precisely this among other stuff. When a machine has finished sequencing, TACA
+in Python 2.7 that does precisely this. When a machine has finished sequencing, TACA
 automatically starts the preprocessing of that data on the local servers. To do so,
 a cronjob that runs every minute checks the status files that the machine generates;
 this is tremendously easy to do in Python.
@@ -73,7 +74,7 @@ The reason to use a simple tornado server and not something more complicated/rob
 RabbitMQ + Celery, is that the HPC has its own task scheduler, called SLURM, that
 will allocate and distribute the jobs among computing nodes.
 
-In the HPPT request received in the server, the id of the dataset to be analyzed is
+In the HTTP request received in the server, the id of the dataset to be analyzed is
 passed as a parameter. TACA has already transferred the dataset before sendint the
 start message, so as soon as the request is processed, the analysis can start.
 
