@@ -28,8 +28,6 @@ Compare DNA and other concepts to programming!
    to make of the code. Basically you can "boot up" a cell with whatever DNA source
    code you want.
 
-### How is the data generated?
-...
 
 ### How is it clinically useful?
 The genome is your genes: your DNA. It's the inheritable code that determines
