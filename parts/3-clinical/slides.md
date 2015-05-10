@@ -1,21 +1,22 @@
 # Outline, slides
 
 ## Clinical Genomics
-Sister facility to NGI at SciLifeLab providing DNA sequencing capabilities to
-hospitals across Sweden.
+So my name is Robin and I work at a sister facility to NGI at SciLifeLab where we
+provide DNA sequencing services to hospitals across Sweden.
 
-One of the things that make working at our facility unique is that our end users
-tend to be only somewhat-computer-literate geneticists and doctors. This means that
-we need to find a way to process the data as far as possible before we intuitively
-visualizing it.
+We do mostly similar automation and data analysis as we've talked about before.
+However, one of the things that makes working at our facility unique is that our end
+users tend to be only somewhat-computer-literate doctors. This means that we need to
+find a way to process the data as far as possible before we intuitively visualize it.
 
 We have a long term vision that after doctors recieve their "test results" from
-DNA sequencing it shouldn't take them more than 5 minutes to reach a diagnosis.
+DNA sequencing it shouldn't take them more than 5 minutes to reach a clincal decision.
+
 
 ## Genomics in healthcare today
-The first clinical use of DNA sequencing is taking place in diagnosis of rare disoders
-that for the sake of this presentation are 100% genetic and 100% inheritable. They
-often develop early in life of the patients and cause severe symptoms.
+The kinds of disoders we are talking about here are rare and inherited from parent to
+child. The cause is, for the sake of this presentation 100% genetic and often develop
+early in life of the patients and cause severe symptoms.
 
 Right now the process is quite bleak. Patients meet with a doctor, run some tests,
 are sent home, some more tests are run, the see another doctor, home again... This
@@ -24,13 +25,6 @@ can go on for 15 years without definitive answers.
 However using sequencing you have the possibility of finding out the root cause
 within 2 weeks. This can have tremendous beneficial effects for the patient, family,
 and healthcare system.
-
-The use of DNA sequencing in healthcare is pretty cool! Hospitals are *not* famous
-or moving fast or quickly adopting new technology. Now they are using the same tools
-as cutting edge research.
-
-Guillermo already talked about automation and analysis and we do about the same thing
-on our platform. Instead I will tell the story of the delivery report...
 
 
 ## Excel sheet -> Web interface
@@ -90,28 +84,23 @@ Basically we've learned the lesson that when it's possible to do something in Py
 
 
 ## MongoDB + MongoEngine
-We implemented the backend in MySQL to begin with but decided to switch to MongoDB
-when we went through a major refactor. There are a few undeniable upsides such as
-the much simplified and more intuitive data model with e.g. nested comments. We can
-also repopulate almost all data from the file system if thing do go wrong. Integrity
-of the database isn't super duper important. The data that gets added over time is
-limited and not always mission critical.
+There are a few undeniable upsides such as the much simplified and more intuitive data model with e.g. nested comments.
 
-But most importantly; we need to keep track of what we've uploaded and be able to
-repopulate the same information on request for old samples. You upload data once per
-sample and make the clinical interpretation based on that. It can never change! We
-also can't share data as much as you might want to think. Each sample needs to be
-pretty isolated form the rest and especially between different institutes. So we
-can't make use of aggresive normalization even if we wanted. This makes MongoDB
-attractive as well!
+Most importantly: if a doctors shows up and wants to take a look at a result from way
+back we need to be able to show her the exactly what the previous clinical
+interpretation was based on. We solve this problem by limiting Scout to a visualization
+tool. It's not Wikipedia.
 
-### MongoEngine ODM as the API
-MongoEngine as an interface to MongoDB - we've built our API around it!
-Finally a chance to show some code examples ^^
+We also need to denormalize data to avoid information spilling over between patient
+data. For example comments. This makes MongoDB an attractive choice as well!
+
+I also really like the ability to create computed properties that behave as regular
+fields. This has really helped a lot to maintain readability as we pass aruond these
+objects in the templates.
 
 
 ## Concluding remarks
-I have to take away messages to share. The first is how important it's been for us
+I have two take-away messages to share. The first is how important it's been for us
 to be able to come together under a single language to do just about everthing we
 need to run a sequencing platform. Python allows us to do that unlike any other
 language.
