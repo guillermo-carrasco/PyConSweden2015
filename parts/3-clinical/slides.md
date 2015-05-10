@@ -19,7 +19,7 @@ child. The cause is, for the sake of this presentation 100% genetic and often de
 early in life of the patients and cause severe symptoms.
 
 Right now the process is quite bleak. Patients meet with a doctor, run some tests,
-are sent home, some more tests are run, the see another doctor, home again... This
+are sent home, some more tests are run, then see another doctor, home again... This
 can go on for 15 years without definitive answers.
 
 However using sequencing you have the possibility of finding out the root cause
@@ -49,7 +49,7 @@ other thrid party libraries such as Jinja2 for HTML templates and MongoEngine as
 API for our database.
 
 We have to remember that we are dealing with sensitive clinical data. We are by no
-means security experts but what we do, do is to restrict access based on IP adresses,
+means security experts but what we do is restricting access based on IP adresses,
 enforce two-step authentication on all user accounts, and encrypt data using SLL.
 
 ### The interface
@@ -87,9 +87,9 @@ Basically we've learned the lesson that when it's possible to do something in Py
 There are a few undeniable upsides such as the much simplified and more intuitive data model with e.g. nested comments.
 
 Most importantly: if a doctors shows up and wants to take a look at a result from way
-back we need to be able to show her the exactly what the previous clinical
-interpretation was based on. We solve this problem by limiting Scout to a visualization
-tool. It's not Wikipedia.
+back we need to be able to show her exactly what the previous clinical interpretation
+was based on. We solve this problem by limiting Scout to a visualization tool. It's
+not Wikipedia.
 
 We also need to denormalize data to avoid information spilling over between patient
 data. For example comments. This makes MongoDB an attractive choice as well!
@@ -106,7 +106,7 @@ need to run a sequencing platform. Python allows us to do that unlike any other
 language.
 
 The second message is what a huge potential we have in science/academia of being
-leveraging open source development. Bioinformatics has a hig and lively open source
+leveraging open source development. Bioinformatics has a large and lively open source
 community that are doing some amazing things.
 
 Internally we have decided to promote our inhouse developed open source projects
