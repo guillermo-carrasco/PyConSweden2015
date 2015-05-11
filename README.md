@@ -1,4 +1,6 @@
-# Proposal sketch for PyCon Sweden 2015
+# Presentation material for PyCon Sweden 2015
+
+![PyCon](/assets/logo_pycon.png?raw=True)
 
 ### Title
 
@@ -11,7 +13,7 @@ Science
 
 ### Duration
 
-I would prefer a 30 minutes slot
+30 minutes
 
 ### Description
 
@@ -19,10 +21,9 @@ A genomics research center produces larges amount of data per day; a single one 
 the new [Illumina machines](http://www.illumina.com/systems/hiseq-x-sequencing-system/performance-specifications.html)
 for sequencing can produce around 2TB of data composed of millions of files in under 3 days.
 
-The first part will focus on how we use Python for the management and automated
-analysis of billions of DNA sequences for research focused projects.
-
-The second part will tell the story of how Python is at the center of a medical revolution. It will focus on how we have fundamentally changed the way we deliver data to "regular" clinicians using a Flask powered website.
+The first part will focus on how Python manages the preprocessing and analysis of billions
+of DNA sequences in a completely automated way. We will also cover how sequencing results
+are visualized using Flask and MongoEngine to solve medical mysteries in the clinic today.
 
 ### Audience
 
@@ -34,7 +35,7 @@ The second part will tell the story of how Python is at the center of a medical 
 
 ### Python level
 
-Intermediate - Advanced
+Intermediate
 
 ### Objectives
 
@@ -45,29 +46,17 @@ They will also get a peek behind the website that allows clinicians to
 productively review results from DNA sequencing and make life-changing
 diagnoses.
 
-### Detailed abstract
-TODO: Do we need to write this? I think it's covered elsewhere, no?
-
-### Outline
-TODO: how long are we planning to speak? 10 + 10 + 5 min + Q&A?
-
-**Introduction**
-
-**Part 1**
-
-**Part 2**
-
-1. Introduce DNA sequencing + the role of Python in the clinic (5 min)
-
-2. Scout, our web-based data delivery interface (10 min)
-  1. From Excel sheet to Flask website
-  2. From JavaScript-mess to Python-bliss
-
-**Finale**
-
-1. Doing everything in open source; GitHub, documentation, [...]
-2. Promoting great project through our open source portal
 
 ### Additional notes
 
-### Additional requirements
+The content of the presentation is structured into [3 different parts](/parts).
+On each part there is a `slides.md` file that accompany the slides for that part,
+which are located in the same directory under the name `presentation.key`
+
+The complete slides set is located [here](/presentation.key).
+
+### Contact
+
+[Guillermo Carrasco](http://mussol.org/): guillermo.carrasco.hernandez@gmail.com
+
+[Robin Andeer](http://www.robinandeer.com/): robin.andeer@gmail.com
